@@ -1,0 +1,215 @@
+{
+  "$schema": "./schemas/models_manifest.schema.json",
+  "comment": "Modelos necessários para o pipeline. Tudo baixado em ComfyUI/models/<destination>.",
+  "comment_civitai": "Modelos do Civitai marcados como 'manual_civitai' precisam de token. Veja docs/CIVITAI_TOKEN.md.",
+  "models": [
+    {
+      "name": "DreamShaper 8 (SD 1.5)",
+      "category": "checkpoint",
+      "description": "Fine-tune popular do SD 1.5 com excelente qualidade para arte estilizada. Default para volume de sprites.",
+      "url": "https://huggingface.co/Lykon/DreamShaper/resolve/main/DreamShaper_8_pruned.safetensors",
+      "destination": "checkpoints/sd15_dreamshaper8.safetensors",
+      "size_bytes": 2132625432,
+      "required": true,
+      "purpose": "Modelo base padrão para personagens, prédios, terrenos em volume."
+    },
+    {
+      "name": "SDXL Lightning 8-step (Unet)",
+      "category": "checkpoint",
+      "description": "SDXL destilado para gerar em 8 passos. Hero shots e UI quando precisar de qualidade extra.",
+      "url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors",
+      "destination": "checkpoints/sdxl_lightning_8step.safetensors",
+      "size_bytes": 5135149688,
+      "required": true,
+      "purpose": "Hero portraits e UI premium."
+    },
+    {
+      "name": "SDXL base VAE",
+      "category": "vae",
+      "description": "VAE oficial do SDXL.",
+      "url": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+      "destination": "vae/sdxl_vae.safetensors",
+      "size_bytes": 334641162,
+      "required": true,
+      "purpose": "Decoder VAE para SDXL — qualidade superior à default."
+    },
+    {
+      "name": "SD 1.5 VAE MSE",
+      "category": "vae",
+      "description": "VAE ft-mse para SD 1.5, melhor que o padrão.",
+      "url": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors",
+      "destination": "vae/vae-ft-mse-840000-ema-pruned.safetensors",
+      "size_bytes": 334641162,
+      "required": true,
+      "purpose": "Decoder VAE de alta qualidade para SD 1.5."
+    },
+
+    {
+      "name": "ControlNet Canny (SD 1.5)",
+      "category": "controlnet",
+      "description": "Detecção de bordas — usado para forçar silhuetas e ângulos isométricos.",
+      "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth",
+      "destination": "controlnet/control_v11p_sd15_canny.pth",
+      "size_bytes": 1445157124,
+      "required": true,
+      "purpose": "Controla silhueta a partir de canny edges (referência isométrica)."
+    },
+    {
+      "name": "ControlNet Lineart (SD 1.5)",
+      "category": "controlnet",
+      "description": "Variante mais limpa para ângulos isométricos.",
+      "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_lineart.pth",
+      "destination": "controlnet/control_v11p_sd15_lineart.pth",
+      "size_bytes": 1445157124,
+      "required": true,
+      "purpose": "Controla contorno preciso de prédios e unidades."
+    },
+    {
+      "name": "ControlNet Depth (SD 1.5)",
+      "category": "controlnet",
+      "description": "Mapa de profundidade — força perspectiva consistente.",
+      "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth",
+      "destination": "controlnet/control_v11f1p_sd15_depth.pth",
+      "size_bytes": 1445157124,
+      "required": true,
+      "purpose": "Profundidade 3D para isometria. Núcleo da consistência geométrica."
+    },
+    {
+      "name": "ControlNet OpenPose (SD 1.5)",
+      "category": "controlnet",
+      "description": "Esqueleto de pose — útil para clonar pose de unidades de referência.",
+      "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_openpose.pth",
+      "destination": "controlnet/control_v11p_sd15_openpose.pth",
+      "size_bytes": 1445157124,
+      "required": false,
+      "purpose": "Cópia de poses para sprites de combate."
+    },
+    {
+      "name": "ControlNet Canny (SDXL)",
+      "category": "controlnet",
+      "description": "Versão SDXL do Canny.",
+      "url": "https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+      "destination": "controlnet/controlnet-canny-sdxl-1.0.safetensors",
+      "size_bytes": 2502139136,
+      "required": false,
+      "purpose": "Canny para hero shots em SDXL."
+    },
+    {
+      "name": "ControlNet Depth (SDXL)",
+      "category": "controlnet",
+      "description": "Versão SDXL do Depth.",
+      "url": "https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+      "destination": "controlnet/controlnet-depth-sdxl-1.0.safetensors",
+      "size_bytes": 2502139136,
+      "required": false,
+      "purpose": "Depth para hero shots SDXL."
+    },
+
+    {
+      "name": "IP-Adapter Plus (SD 1.5)",
+      "category": "ipadapter",
+      "description": "Aderência forte a uma imagem de referência. Coração da consistência por personagem.",
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors",
+      "destination": "ipadapter/ip-adapter-plus_sd15.safetensors",
+      "size_bytes": 158407210,
+      "required": true,
+      "purpose": "Mantém o mesmo personagem entre frames, animações e ângulos."
+    },
+    {
+      "name": "IP-Adapter Plus Face (SD 1.5)",
+      "category": "ipadapter",
+      "description": "Variante focada em face/identidade. Usar para portraits.",
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus-face_sd15.safetensors",
+      "destination": "ipadapter/ip-adapter-plus-face_sd15.safetensors",
+      "size_bytes": 158407210,
+      "required": false,
+      "purpose": "Portraits e ícones de unidade mantendo a face."
+    },
+    {
+      "name": "IP-Adapter Plus (SDXL)",
+      "category": "ipadapter",
+      "description": "Versão SDXL do IP-Adapter Plus.",
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
+      "destination": "ipadapter/ip-adapter-plus_sdxl_vit-h.safetensors",
+      "size_bytes": 1013454592,
+      "required": true,
+      "purpose": "Aderência a referência em hero shots SDXL."
+    },
+
+    {
+      "name": "CLIP Vision ViT-H (SD 1.5)",
+      "category": "clip_vision",
+      "description": "Encoder de imagem usado pelo IP-Adapter.",
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors",
+      "destination": "clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+      "size_bytes": 3944394146,
+      "required": true,
+      "purpose": "Codifica a referência visual em embeddings que o IP-Adapter consome."
+    },
+    {
+      "name": "CLIP Vision ViT-bigG (SDXL)",
+      "category": "clip_vision",
+      "description": "Encoder de imagem usado pelo IP-Adapter SDXL.",
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors",
+      "destination": "clip_vision/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors",
+      "size_bytes": 3689912511,
+      "required": false,
+      "purpose": "Encoder de imagem para IP-Adapter SDXL."
+    },
+
+    {
+      "name": "RealESRGAN x4 plus",
+      "category": "upscaler",
+      "description": "Upscale 4x para hero shots e finalização.",
+      "url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
+      "destination": "upscale_models/RealESRGAN_x4plus.pth",
+      "size_bytes": 67040989,
+      "required": true,
+      "purpose": "Upscale final 4x quando precisa de detalhe extra."
+    },
+    {
+      "name": "RealESRGAN x4 anime",
+      "category": "upscaler",
+      "description": "Upscale 4x otimizado para arte estilizada/anime.",
+      "url": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth",
+      "destination": "upscale_models/RealESRGAN_x4plus_anime_6B.pth",
+      "size_bytes": 17939397,
+      "required": false,
+      "purpose": "Upscale para estilo painterly/stylized."
+    },
+
+    {
+      "name": "Isometric Asset LoRA (SD 1.5) — placeholder",
+      "category": "lora_placeholder",
+      "description": "LoRA de isometria. Civitai requer token; baixe manualmente seguindo docs/CIVITAI_LORAS.md.",
+      "url": "manual_civitai",
+      "civitai_id_hint": "search: isometric asset, isometric game",
+      "destination": "loras/iso_asset_sd15.safetensors",
+      "size_bytes": 0,
+      "required": false,
+      "purpose": "Reforça projeção isométrica e estética de tile/asset de jogo."
+    },
+    {
+      "name": "Game Asset LoRA (SDXL) — placeholder",
+      "category": "lora_placeholder",
+      "description": "LoRA de game asset SDXL. Baixe manualmente.",
+      "url": "manual_civitai",
+      "civitai_id_hint": "search: game asset xl, sprite xl, game icon xl",
+      "destination": "loras/game_asset_xl.safetensors",
+      "size_bytes": 0,
+      "required": false,
+      "purpose": "Estética de game asset profissional em SDXL."
+    },
+    {
+      "name": "Pixel Art Style LoRA — placeholder",
+      "category": "lora_placeholder",
+      "description": "Opcional, para jogos estilo pixel.",
+      "url": "manual_civitai",
+      "civitai_id_hint": "search: pixel art style",
+      "destination": "loras/pixel_art.safetensors",
+      "size_bytes": 0,
+      "required": false,
+      "purpose": "Estilo pixel art — para variantes retrô."
+    }
+  ]
+}

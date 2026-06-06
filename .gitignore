@@ -1,0 +1,37 @@
+# Pesados — nunca em versionamento
+ComfyUI/
+python/
+venv/
+
+# Geração e logs
+test_outputs/
+logs/
+**/*.pyc
+__pycache__/
+.pytest_cache/
+
+# Outputs grandes de cada projeto (commit os JSONs, não os PNGs)
+projects/*/assets/
+projects/*/generation_log.jsonl
+
+# Modelos baixados (são GB)
+**/models/checkpoints/*.safetensors
+**/models/checkpoints/*.ckpt
+**/models/controlnet/*.pth
+**/models/controlnet/*.safetensors
+**/models/ipadapter/*.safetensors
+**/models/clip_vision/*.safetensors
+**/models/vae/*.safetensors
+**/models/loras/*.safetensors
+**/models/upscale_models/*.pth
+**/models/upscale_models/*.safetensors
+
+# Mantém os manifestos e os .gitkeep
+!**/models/.gitkeep
+!**/models/**/.gitkeep
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp

@@ -1,0 +1,46 @@
+{
+  "$schema": "./schemas/extensions_manifest.schema.json",
+  "comment": "Custom nodes essenciais para ComfyUI. Ordem importa: Manager primeiro.",
+  "extensions": [
+    {
+      "name": "ComfyUI-Manager",
+      "url": "https://github.com/ltdrdata/ComfyUI-Manager.git",
+      "purpose": "Gerenciador de extensões e modelos. Catálogo amplo, mas usamos junto com nosso script."
+    },
+    {
+      "name": "ComfyUI_IPAdapter_plus",
+      "url": "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git",
+      "purpose": "IP-Adapter para forçar aderência a imagens de referência. Essencial para consistência de personagens."
+    },
+    {
+      "name": "comfyui_controlnet_aux",
+      "url": "https://github.com/Fannovel16/comfyui_controlnet_aux.git",
+      "purpose": "Pré-processadores ControlNet (Canny, Lineart, Depth, OpenPose, etc.). Necessário para a isometria forçada."
+    },
+    {
+      "name": "ComfyUI-Impact-Pack",
+      "url": "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+      "purpose": "Detalhamento, segmentação, face restore — útil para passes de polimento."
+    },
+    {
+      "name": "ComfyUI-AnimateDiff-Evolved",
+      "url": "https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved.git",
+      "purpose": "Animação 2D experimental para idle/walk via AnimateDiff. Opcional, pesado em VRAM."
+    },
+    {
+      "name": "ComfyUI-Custom-Scripts",
+      "url": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git",
+      "purpose": "UX e utilitários (autocomplete, image feed, etc.)."
+    },
+    {
+      "name": "was-node-suite-comfyui",
+      "url": "https://github.com/WASasquatch/was-node-suite-comfyui.git",
+      "purpose": "Nodes utilitários para manipulação de imagem, IO, composição."
+    },
+    {
+      "name": "ComfyUI_essentials",
+      "url": "https://github.com/cubiq/ComfyUI_essentials.git",
+      "purpose": "Nodes essenciais de manipulação (mask, image ops, sampling)."
+    }
+  ]
+}

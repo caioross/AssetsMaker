@@ -1,0 +1,4 @@
+{
+  "_comment": "Catálogo de tiles e props de terreno. Schema: orchestrator.schemas.TerrainTile.",
+  "terrain": []
+}
