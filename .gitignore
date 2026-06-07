@@ -35,3 +35,6 @@ projects/*/generation_log.jsonl
 Thumbs.db
 desktop.ini
 *.tmp
+
+# Ferramentas internas
+.claude/
